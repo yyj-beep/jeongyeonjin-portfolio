@@ -25,8 +25,8 @@ https://yeonjin-portfolio.vercel.app
 - 최소한의 텍스트, 비주얼 중심 구성
 
 ## 📁 Projects
-- Dog Shelter (Team Project)
+- Dog Shelter
 - Namoo Actors
-- Toreta Campaign
+- Toreta
 - Weather Wear
 - Zero Waste
