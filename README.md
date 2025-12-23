@@ -4,7 +4,7 @@
 스크롤 경험과 시각적 흐름에 집중하여 구성했습니다.
 
 ## 🔗 Live Demo
-https://yeonjin-portfolio.vercel.app  
+https://jeongyeonjin-portfolio.vercel.app
 (※ 데스크탑 환경 기준으로 제작되었습니다)
 
 ## 🖥 Viewing Environment
