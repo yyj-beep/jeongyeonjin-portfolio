@@ -1,0 +1,287 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+/* =========================
+   Layout
+========================= */
+
+.contact {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* 배경 종이 텍스처 */
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* 빨간 폴더 이미지 */
+.folder {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -50%);
+  width: min(85vw, 1800px);
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* =========================
+   Marquee Area
+========================= */
+
+.marqueeArea {
+  margin-top: -20px; /* 첫번째줄, 상단 여백 */
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* 공통 마퀴 */
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1.15;
+}
+
+/* 앞줄 / 뒷줄 간격 제어 */
+.marqueeFront {
+  padding-bottom: 4px;
+}
+
+.marqueeBack {
+  padding-top: 0;
+  margin-top: -47px; /* 두 줄 사이 간격 핵심 */
+}
+
+/* =========================
+   Marquee Track
+========================= */
+
+.track {
+  display: inline-flex;
+  align-items: center;
+  gap: 65px; /* 단어 간 리듬 */
+  will-change: transform;
+}
+
+.marqueeFront .track {
+  animation: marquee-left var(--duration, 28s) linear infinite;
+}
+
+.marqueeBack .track {
+  animation: marquee-right var(--duration, 28s) linear infinite;
+}
+
+
+/* =========================
+   Typography (Base)
+========================= */
+
+.word,
+.stroke {
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  font-size: clamp(120px, 12vw, 153px);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* 채워진 텍스트 */
+.word {
+  color: #e63a2e;
+}
+
+/* 스트로크 텍스트 */
+.stroke {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #e63a2e;
+  filter: blur(4px);
+}
+
+/* =========================
+   Bottom Content
+========================= */
+
+.content {
+  position: absolute;
+  left: 51%;
+  bottom: 7%;
+  transform: translateX(-50%);
+  z-index: 4;
+  width: min(920px, 86vw);
+  text-align: left;
+}
+
+/* thank you 텍스트 */
+.msg {
+  font-family: "Kanit", sans-serif;
+  font-size: 37px;
+  line-height: 1.15;
+  color: #F7F5F2;
+  margin: 0 0 22px 0;
+  opacity: 0.9;
+  font-weight: 100;
+  transform: translateY(-9px);
+}
+
+/* pill 버튼 */
+.pills {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+  transform: translateY(12px); /* ⭐ 버튼만 살짝 */
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 17px 23px; /*btn 내부 여백*/
+  border-radius: 999px;
+  border: 1px solid #f7f5f2e6; /* 90% */
+  color: #f7f5f2;
+  text-decoration: none;
+  font-family: "Pretendard", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.pill:hover {
+  font-family: "Pretendard", sans-serif;
+  background-color: #f7f5f2e6; 
+  border-color: #AB3C33;        /* 테두리 또렷 */
+  transform: translateY(0px);
+  color: #AB3C33;
+}
+
+/* =========================
+   Animation
+========================= */
+
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+/* =========================
+   Right Info Block
+   ─ 폴더 위에 얹히는 오른쪽 정보 영역
+   (이름 + 위치를 인쇄물처럼 표현)
+========================= */
+
+/* 전체 정보 블록 위치 */
+.info {
+  position: absolute;      /* 폴더 위에 정확히 얹기 위해 절대 위치 */
+  right: 1%;              /* 오른쪽 여백 기준 */
+  bottom: 41%;             /* 폴더 기준 세로 위치 */
+  z-index: 5;              /* 폴더 이미지보다 위에 표시 */
+  color: #D79F9F;          /* 기본 텍스트 색상 */
+}
+
+
+/* ---------- Name Block ----------
+   이름 + 이름 아래 가로 라인
+--------------------------------- */
+
+/* 이름 영역 전체 묶음 */
+.nameBlock {
+  margin-bottom: 45px;     /* 이름과 위치 블록 사이 간격 */
+}
+
+/* 이름 텍스트 */
+.name {
+  font-family: "Kanit", sans-serif; /* 타이포 메인 폰트 */
+  font-size: 26px;                  /* 이름 크기 */
+  font-weight: 100;                 /* 가벼운 굵기 */
+  margin: 0 0 3px 0;                /* 이름과 가로 라인 간격 */
+  color: #D79F9F;
+  letter-spacing: -0.01em;
+}
+
+/* 이름 아래 짧은 가로 라인 */
+.nameLine {
+  display: block;                   /* 가로선 표현 */
+  width: 156px;                     /* 라인 길이 */
+  height: 0.5px;                    /* 라인 두께 */
+  background-color: #F7F5F2;
+}
+
+
+/* ---------- Location Block ----------
+   위치 정보 (점 + 세로 라인 + 텍스트 + 가로 라인)
+------------------------------------ */
+
+/* 점과 텍스트를 가로로 배치 */
+.locationBlock {
+  display: flex;
+  align-items: flex-start;           /* 점과 텍스트 상단 정렬 */
+  gap: 13px;                         /* 점과 텍스트 사이 간격 */
+}
+
+/* 위치 시작점 (동그라미) */
+.pin {
+  position: relative;               /* 세로 라인(::after)을 붙이기 위한 기준 */
+  width: 16px;                      /* 점 크기 */
+  height: 16px;
+  background-color: #D79F9F;
+  border-radius: 50%;               /* 원형 */
+  margin-top: 6px;                  /* 텍스트와 시각적 중심 맞춤 */
+}
+
+/* 점 아래로 내려오는 짧은 세로 라인 */
+.pin::after {
+  content: "";
+  position: absolute;
+  top: 10px;                        /* 점 바로 아래에서 시작 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;                       /* 세로 라인 두께 */
+  height: 15px;                     /* 세로 라인 길이 */
+  background-color: #D79F9F;
+}
+
+
+/* ---------- Location Text ----------
+   위치 텍스트 + 아래 가로 라인
+----------------------------------- */
+
+/* 위치 텍스트 */
+.locationText {
+  font-family: "Kanit", sans-serif;      /* 본문용 폰트 */
+  font-size: 25px;                       /* 위치 텍스트 크기 */
+  font-weight: 100;  
+  margin: 0 0 2px 0;                     /* 텍스트와 가로 라인 간격 */
+}
+
+/* 위치 텍스트 아래 가로 라인 */
+.locationLine {
+  display: block;
+  width: 310px;                     
+  height: 0.5px;
+  background-color: #F7F5F2;
+  transform: translateX(-28px); /* ⭐ 이것만 */
+}

@@ -1,0 +1,265 @@
+/* src/styles/Works.module.css */
+/* ---------------------------
+   폰트 불러오기
+---------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Neuton:wght@400;700&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+/* ---------------------------
+   섹션 전체 & 배경
+---------------------------- */
+.works {
+  position: relative;          /* 배경(.bg)의 기준 */
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;                 /* 내용 뒤로 */
+}
+
+/* 안쪽 컨테이너 (Works 타이틀 + 노트북 + 캡션 전체 감싸는 박스) */
+.inner {
+  width: 100%;
+  max-width: 900px;
+  padding: 80px 40px;
+  box-sizing: border-box;
+}
+
+/* 한 개의 작업 전체 블록 (01번 카드) */
+.workItem {
+  position: relative;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 상단 "Works" 텍스트 */
+.sectionTitle {
+  font-family: "Kanit", sans-serif;
+  font-size: 33px;
+  font-weight: 600;
+  margin-left: -35px;
+  margin-top: 0px;
+  letter-spacing: -0.02em;
+  color:#111827;
+  transform: translateY(-75px);
+}
+
+/* ---------------------------
+   01번 NAMOOACTORS (숫자+빨간 타이틀)
+---------------------------- */
+
+/* 🔴 NAMOOACTORS 텍스트 자체 스타일 + 기본 위치 */
+.title {
+  position: absolute;
+  top: 40%;
+  left: 52.8%;
+  transform: translate(-50%, -50%);  /* 기준점만 중앙으로 */
+
+  font-family: "Kanit", sans-serif;
+  font-size: 90px;
+  font-weight: 700;
+  color: #E63A2E;
+  white-space: nowrap;
+
+  transition: transform 0.1s linear;
+}
+
+
+
+
+.titleClickArea {
+  cursor: pointer;
+}
+
+.titleClickOverlay {
+  position: absolute;
+  top: 40%;
+  left: 52.8%;
+  font-family: "Kanit", sans-serif;
+  font-size: 90px;
+  font-weight: 700;
+  white-space: nowrap;
+
+  color: transparent;   /* 보이지 않게 */
+  cursor: pointer;
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+
+
+
+
+/* (01) 숫자 자체 스타일 + 위치 */
+.index {  
+  font-family: "Neuton", serif;
+  position: absolute;
+  left: -360px;             /* 👉 (01) 가로 위치 미세조정은 여기서 */
+  top: -50px;               /* 👉 위치를 ‘정함’, 세로 미세조정은 여기서 */
+  transform: translateY(-80%); /* 그 위치에서 ‘보정함’ */
+  font-size: 25px;
+  color: #e63a2e;
+  font-weight: 400;
+  transition: transform 0.1s linear;
+}
+
+/* 노트북 감싸는 박스 / 실제 이미지 */
+.deviceWrap {
+  position: relative;
+  width: 720px;
+  height: 420px;      /* ✅ 화면 높이만큼 확보 */
+  overflow: visible;  /* ✅ 절대 중요 */
+  margin: 0 auto;
+  pointer-events: none; /* ⭐ 클릭 다 무시 */
+}
+
+
+.device {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translate(4.5px, -19.5px);  /*가운데 디바이스 크기*/
+  transform-origin: center center;
+  transition: transform 0.3s ease;
+  pointer-events: none; /* ⭐ 클릭 다 무시 */
+}
+
+/* 각 디바이스 한 장(layer) */
+.deviceLayer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.4s ease;
+  z-index: 1;
+  pointer-events: none; /* ⭐ 클릭 다 무시 */
+}
+
+/* 아래 캡션 텍스트 */
+.caption {
+  margin-top: 100px;
+  font-family: "Pretendard", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  z-index: 10;
+  position: absolute;
+  left: 50%;
+  bottom: -105px;       /* 아래에서부터 거리 */
+  transform: translateX(-50%);
+  margin-top: 0;    
+}
+
+.tight {
+  letter-spacing: 0.06em; /* 6% 자간 */
+}
+
+/* ---------------------------
+   sticky 스크롤 영역 세팅
+---------------------------- */
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Works 섹션에서 실제 스크롤 길이(얼마나 굴릴지) */
+.scrollArea {
+  height: 300vh;
+}
+
+/* ---------------------------
+   스크롤에 따라 같이 움직이는 그룹들
+   → 여기에는 '움직임'만, 위치/스타일은 내부 애들에서
+---------------------------- */
+
+/* 01번 그룹 ( (01) + NAMOOACTORS ) */
+.movingGroup {
+  position: absolute;
+  top: 40.5%;
+  left: 52.8%;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* 마우스 이벤트 막기 */
+  z-index: 3;
+}
+
+/* 02번 그룹 ( (02) + DOG SHELTER ) */
+.nextGroup {
+  position: absolute;
+  top: 40.5%;
+  left: 52.8%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* ---------------------------
+   02번 DOG SHELTER (숫자 + 윤곽 텍스트)
+---------------------------- */
+
+/* (02) 숫자 */
+.indexNext {
+  font-family: "Neuton", serif;
+  font-size: 25px;
+  font-weight: 400;
+  position: absolute;
+  left: 116px;  /* 👉 DOG SHELTER 기준으로 (02) 위치 미세조정 */
+  top: -75px;    /* 👉 위/아래 조정 */
+}
+
+/* DOG SHELTER 텍스트 (윤곽선) */
+.titleNext {
+  font-family: "Kanit", sans-serif;
+  font-size: 90px;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1px #000000; /* 테두리만 */
+  white-space: nowrap;
+  position: absolute;          /* ✅ 이제 top/left 먹힘 */
+  top: -67px;                      /* 여기서 위아래 */
+  left: 147px;                     /* 여기서 좌우 */
+}
+
+
+
+/* 01번 NAMOOACTORS가 뒤로 빠질 때 살짝 흐리게 */
+.groupInactive {
+  opacity: 0.25; /* 완전 안 보이게 하고 싶으면 0으로 바꿔도 됨 */
+}
+
+/* 02번 (02) 숫자가 활성화됐을 때 스타일 */
+.indexNextActive {
+  color: #e63a2e;      /* 이미 빨간색이긴 한데, 나중에 흐리게/진하게 조절하기 좋게 분리 */
+}
+
+/* 02번 DOG SHELTER가 “메인”이 됐을 때 빨간 텍스트로 변경 */
+.titleNextFill {
+  color: #e63a2e;        /* 빨간색 채우기 */
+  -webkit-text-stroke: 0; /* 윤곽선 제거 */
+}
+
+/* 🔥 공통: 빨간색으로 꽉 찬 버전 */
+.fillRed {
+  color: #E63A2E;
+  -webkit-text-stroke: 0;
+}
+
+
+
+
+
+
+
+
+

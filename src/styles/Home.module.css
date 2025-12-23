@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700;800&display=swap');
+
+.home {
+  /* ✅ 화면 전체 배경 영역 */
+  height: 100vh;
+  position: relative;   /* ✅ absolute 기준점 */
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.title {
+  /* ✅ 타이틀 덩어리를 절대 위치로 고정 */
+  position: absolute;
+  left: 50px;
+  bottom: 53px;
+  z-index: 1;
+  transform-origin: left bottom; /* 중요 */
+
+  /* ✅ 두 줄 전체 공통 스타일 */
+  font-family: 'Kanit', sans-serif; 
+  font-weight: 800;
+  line-height: 1;
+  color: #E63A2E;
+}
+
+.line1 {
+  /* ✅ "NOT JUST SEEN" 전용 스타일 */
+  display: block;
+  font-size: 150px;
+  white-space: nowrap;   /* ✅ 줄바꿈 방지 (핵심) */
+  margin-bottom: -15px;   /* ✅ 타이틀 두 줄 사이 여백 */
+}
+
+
+  /* ✅ "_FELT" 전용 스타일 */
+.line2 {
+  display: block;
+  font-size: 150px;
+}
+
+
+  /* ✅ "©" 전용 스타일 */
+.copy {
+  font-size: 35px;        /* ✅ © 크기만 따로 */
+  position: relative;
+  top: 2px;              /* ✅ 위로 올리기 (Figma 기준 미세조정) */
+  margin-left: 0;       /* ✅ FELT와 간격 */
+  font-weight: 600;       /* ✅ 너무 두꺼우면 조절 */
+   vertical-align: baseline;
+}
+
+
+/* 종이 */
+.paper {
+  position: absolute;
+  top: 120px;
+  right: -1px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.paper img {
+  width: 280px;
+  height: 145px;
+  display: block;
+}
+
+
+
+
+

@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url('/public/assets/bg-texture.jpg');  /* ✅ public 앞에 /public 쓰면 안 됨 */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 60% 50%;
+  
 }
 
 code {

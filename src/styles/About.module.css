@@ -1,0 +1,115 @@
+/* src/styles/About.module.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+
+.about {
+  /* 화면 한 장 높이 */
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+}
+
+.inner {
+  /* 안쪽 레이아웃: 좌우 2컬럼 */
+  display: flex;
+  align-items: center;
+
+  /* ✅ 두 덩어리 사이 간격 */
+  justify-content: flex-start;  /* 양쪽 끝 말고 왼쪽 기준으로 두고 */
+  column-gap: 830px;            /* ← 왼쪽/오른쪽 사이 띄우기 */
+
+  width: 100%;
+  max-width: 1300px;
+}
+
+
+
+/* 4줄이 합쳐진 한 장짜리 이미지 */
+.textImage {
+  width: 580px;    /* 전체 가로 크기 */
+  height: auto;    /* 비율 유지 */
+  display: block;
+}
+
+/* 오른쪽 텍스트 영역 */
+.content {
+  flex: 1;
+  max-width: 480px;
+  font-family: "Kanit", sans-serif;
+  color: #333;
+
+  /* ✅ 위치 미세 조정 */
+  margin-left: 20px;         /* 오른쪽으로 조금 밀기 */
+  transform: translateY(43px);   /* 아래로 10px 내리기 */
+}
+
+.desc {
+  font-size: 16.7px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-weight: 300;
+  line-height: 22px;
+  color: #454545;
+}
+
+.button {
+  padding: 3px 10px 3px 13px;
+  border-radius: 999px;
+  border: 1px solid #000;
+  color: #000;
+  background: transparent;
+  font-size: 9px;
+
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: "Pretendard", sans-serif;  /* ✅ 이 줄 추가 */
+  font-weight: 500; 
+
+  display: inline-flex;        /* ✅ 텍스트 + 아이콘 가로 정렬 */
+  align-items: center;
+  gap: 2px;                    /* ✅ 글자 - 아이콘 간격 */
+  transform: translateY(-12px);
+}
+
+.button i {
+  font-size: 16px;           /* 아이콘 크기 */
+  transform: translateY(1px); /* 텍스트 기준선 맞추기 */
+}
+
+/* 버튼 호버 효과 (선택사항) */
+.button:hover {
+  background: #333;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* 반응형: 화면 좁아지면 위아래로 쌓기 */
+@media (max-width: 900px) {
+  .about {
+    padding: 60px 24px;
+  }
+
+  .inner {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .visual {
+    justify-content: center;
+  }
+
+  .textImage {
+    width: 380px;
+  }
+
+  .content {
+    max-width: none;
+    text-align: left;
+  }
+}

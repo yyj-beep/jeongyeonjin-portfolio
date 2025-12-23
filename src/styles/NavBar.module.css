@@ -1,0 +1,31 @@
+/* src/styles/NavBar.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&display=swap');
+
+.navbar {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  padding-top: 40px;
+  background: transparent; /* 중요 */
+  z-index: 10000;
+  pointer-events: auto;
+}
+
+.navItem {
+  font-family: 'Kanit', sans-serif;
+  font-size: clamp(14px, 2vw, 16px);
+  color: #999999;
+  letter-spacing: 4px;
+  text-decoration: none;
+  transition: color 0.15s ease, text-decoration 0.15s ease;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.navItem:hover,
+.active,
+.active:hover {
+  color: #E63A2E;
+  text-decoration: underline;
+}

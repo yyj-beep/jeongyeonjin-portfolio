@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
+/* =========================
+   Wrapper
+   ─ 페이지 전체를 감싸는 최상위 컨테이너
+   ─ 배경과 콘텐츠의 기준점 역할
+========================= */
+
+.wrapper {
+  position: relative;    /* 내부 absolute 요소(bg)의 기준 */
+  min-height: 100vh;     /* 화면 한 뷰포트 높이 */
+  overflow: hidden;      /* 넘치는 배경/디바이스 잘라내기 */
+}
+
+/* =========================
+   Background
+   ─ 전체 페이지 배경 이미지 영역
+   ─ 콘텐츠보다 항상 뒤에 위치
+========================= */
+
+.bg {
+  position: absolute;    /* wrapper를 기준으로 꽉 채움 */
+  inset: 0;              /* top/right/bottom/left = 0 */
+  background-size: cover;      /* 배경 이미지 꽉 채우기 */
+  background-position: center; /* 중앙 기준 */
+  z-index: 0;            /* 모든 콘텐츠 뒤 */
+}
+
+/* =========================
+   Content Layout
+   ─ 실제 콘텐츠가 들어가는 메인 레이아웃
+   ─ 좌측 텍스트 + 우측 디바이스를 나누는 구조
+========================= */
+
+.container {
+  position: relative;
+  height: 100vh;
+  padding: 80px 80px;
+  box-sizing: border-box;
+
+}
+
+/* =========================
+   Left Text Area
+   ─ 프로젝트 설명 텍스트 영역
+   ─ 전체 폭의 약 40% 차지
+========================= */
+
+.topRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 80px; /* 제목 ↔ overview 간격 */
+}
+
+.titleArea {
+  position: relative;
+  z-index: 2;
+  width: 420px;
+}
+
+/* 부설명+타이틀 */
+.titleGroup {
+  position: relative;
+}
+
+.textArea {
+  position: relative;
+  z-index: 2; /* ⭐ 텍스트를 위로 */
+  width: 42%;
+  margin-top: 3%;
+  transform: translateX(15px); /* ← 왼쪽 여백, 이 값만 조절 */
+}
+
+/* 작은 카테고리 / 프로젝트 타입 텍스트 '나무엑터스 웹사이트 리뉴얼'*/
+.kicker {
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: #595959;
+  transform: translateY(-89px) translateX(1px);
+}
+
+/* 프로젝트 타이틀 */
+.title {
+  font-family: "Poppins", sans-serif;
+  font-size: 41px;
+  font-weight: 800;
+  color: #678350;
+  transform: translateY(-120px);
+}
+
+.overview {
+  position: absolute;   /* ✅ 레이아웃 계산에서 분리 */
+  top: -89px;           /* ← 여기만 맞추면 끝 */
+  left: 415px;          /* ← 이 값으로 ‘같은 선상’ 맞춤 */
+  width: 600px;         /* ✅ 두 줄 정확히 나옴 */
+  z-index: 3;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+
+/* Overview 섹션 제목 */
+.overview h3 {
+  font-size: 14.1px;
+  margin-bottom: 12px;
+  color: #333333;
+  font-weight: 700;
+  transform: translateY(-1px);
+}
+
+/* Overview 설명 문단 */
+.overview p {
+  font-size: 13px;
+  line-height: 0.7;
+  color: #595959;
+  font-weight: 500;
+  transform: translateY(-4px);
+}
+
+/* CTA 버튼 (View site, Watch video 등) */
+.cta {
+  display: inline-flex;          /* ⭐ 이게 제일 중요 */
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  font-family: "Pretendard", sans-serif;
+  font-weight: 600;
+  font-size: 10.5px;
+
+  padding: 7px 15px;
+  border-radius: 999px;
+  border: 1px solid #3A3A3A;
+  background: rgba(131, 166, 103, 0.4);
+
+  cursor: pointer;
+  text-decoration: none;         /* ⭐ 링크 밑줄 제거 */
+  color: #111;                   /* ⭐ 글씨색 고정 */
+}
+
+
+.cta:hover {
+  background: rgba(131, 166, 103, 0.6); /* 살짝 진해짐 */
+  border-color: #2b2b2b;
+}
+
+/* =========================
+   Meta Info
+   ─ 역할 / 기간 / 툴 등 메타 정보 리스트
+========================= */
+
+.infoBlock {
+  position: relative;
+
+  /* ⭐ 이 값만 만지면 버튼 + 메타 전부 같이 움직임 */
+  transform: translateX(0px) translateY(247px);
+}
+
+.meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 39px; /* ⭐ 버튼과의 거리 */
+  margin-left: 2px;
+}
+
+.meta li {
+  display: flex;         /* 라벨 + 값 가로 배치 */
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+/* 왼쪽 라벨 */
+.label {
+  font-family: "Noto Sans KR", sans-serif;
+  width: 60px;            /* Date / Work / Tool 정렬 기준 */
+  font-size: 15px;
+  font-weight: 500;
+  color: #333333;
+  font-weight: 700;
+}
+
+/* 오른쪽 값 영역 */
+.value {
+  font-family: "Noto Sans KR", sans-serif;
+  display: flex;
+  flex-direction: column; /* ⭐ 줄바꿈 핵심 */
+  gap: 11px;
+  font-size: 13.5px; /* work 두줄 여백 */
+  color: #595959;
+  font-weight: 500;
+}
+
+/* =========================
+   Right Device Area
+   ─ 디바이스 이미지가 들어가는 영역
+   ─ 레이아웃 기준 역할
+========================= */
+
+.deviceArea {
+  width: 58%;            /* 디바이스가 차지할 가로 공간 */
+  display: flex;
+  justify-content: flex-end; /* 오른쪽 정렬 */
+  position: relative;
+  z-index: 1; /* ⭐ 텍스트보다 아래 */
+}
+
+/* 실제 디바이스 이미지 */
+.device {
+  max-width: 100%;       /* 영역을 넘지 않게 제한 */
+
+  /* 크기 + 위치 미세 조정 (디자인용) */
+  transform: scale(1.6) translate(385px, -213px);
+
+  /* 오른쪽 기준으로 확대/이동 */
+  transform-origin: right center;
+}
+
+/* Tool 아이콘 묶음 */
+.toolRow {
+  margin-top: 18px;   /* ⭐ 위로/아래로 미세조절 */
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333333;
+  font-weight: 700;
+}
+
+.toolIcons {
+  display: flex;
+  align-items: center;
+  gap: 3.7px;           /* 아이콘 사이 간격 */
+  transform: translate(30px, -1px);
+}
+
+/* 아이콘 공통 스타일 */
+.toolIcons img {
+  width: 26.5px;         /* ⭐ 크기 조절 여기서 */
+  height: auto;
+}
+
