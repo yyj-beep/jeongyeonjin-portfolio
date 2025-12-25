@@ -235,6 +235,13 @@
   transform-origin: right center;
 }
 
+/* 노트북 */
+@media (max-width: 1536px) {
+  .device {
+    transform: scale(1.9) translate(348px, -150px);
+  }
+}
+
 /* Tool 아이콘 묶음 */
 .toolRow {
   margin-top: 18px;   /* ⭐ 위로/아래로 미세조절 */
