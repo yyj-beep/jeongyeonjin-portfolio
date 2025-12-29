@@ -234,6 +234,8 @@
   z-index: 2;
 }
 
+
+
 /* 앞 레이어 1, 작은 버블 */
 .layerOne {
   position: absolute;

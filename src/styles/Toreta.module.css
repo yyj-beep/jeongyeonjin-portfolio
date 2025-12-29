@@ -234,6 +234,20 @@
   transform-origin: right center;
 }
 
+/* 노트북 1536 ~ 1440 */
+@media (max-width: 1536px) and (min-width: 1440px) {
+  .device {
+    transform: scale(1.93) translate(320px, -141px);
+  }
+}
+
+/* 1366 이하 */
+@media (max-width: 1366px) {
+  .device {
+    transform: scale(1.93) translate(320px, -145px);
+  }
+}
+
 /* Tool 아이콘 묶음 */
 .toolRow {
   margin-top: 18px;   /* ⭐ 위로/아래로 미세조절 */

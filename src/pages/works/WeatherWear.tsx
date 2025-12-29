@@ -79,6 +79,7 @@ export default function Weatherwear() {
 
         {/* ===== Right Device Image ===== */}
         <div className={styles.deviceArea}>
+        <div className={styles.deviceGroup}>
 
             {/* ⭐ 디바이스 앞 레이어 이미지 1 */}
           <img
@@ -99,6 +100,7 @@ export default function Weatherwear() {
             alt="Weatherwear devices"
             className={styles.device}
           />
+          </div>
         </div>
       </div>
     </section>
